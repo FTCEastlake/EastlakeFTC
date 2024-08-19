@@ -16,26 +16,29 @@ public class TutorialLinearOpMode extends LinearOpMode {
     DcMotor motor;
 
     int _timeSeconds;
+    String _logTag = "Eastlake";
 
     // Code inside this method will run exactly once after you press the INIT button.
     // This is where you should put all code for the OpMode.
     // https://gm0.org/en/latest/docs/software/getting-started/linear-opmode-vs-opmode.html
     @Override
     public void runOpMode() throws InterruptedException {
-
-        writeMsgToLog("Eastlake", "Init button was pressed. Waiting for start button to be pressed");
+        String msg = "Init button was pressed. Waiting for start button to be pressed";
+        writeMsgToLog(_logTag, msg); writeMsgToDriverHub(_logTag, msg);
         waitForStart();
-        writeMsgToLog("Eastlake", "start button was pressed");
+        msg = "start button was pressed";
+        writeMsgToLog(_logTag, msg); writeMsgToLog(_logTag, msg);
 
         while (!isStopRequested())
         {
             sleep(1000);
             _timeSeconds++;
-            //writeMsgToDriverHub("TimerCount: ", _timeSeconds + " seconds");
-            writeMsgToLog("Eastlake", "timer: " + _timeSeconds + " seconds");
+            msg = "timer: " + _timeSeconds + " seconds";
+            writeMsgToLog(_logTag, msg); writeMsgToLog(_logTag, msg);
         }
 
-        writeMsgToLog("Eastlake", "stop request was detected");
+        msg = "stop request was detected";
+        writeMsgToLog(_logTag, msg); writeMsgToLog(_logTag, msg);
     }
 
 //    @Override
@@ -56,6 +59,7 @@ public class TutorialLinearOpMode extends LinearOpMode {
     public void writeMsgToLog(String tag, String msg)
     {
         // Send text to the logcat window
+        // Note: use [tag: "Eastlake"] to filter on only this code's logs
         Log.d(tag, msg);
     }
 
