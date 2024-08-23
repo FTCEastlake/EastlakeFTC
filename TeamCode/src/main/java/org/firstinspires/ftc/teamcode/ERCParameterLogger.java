@@ -12,6 +12,7 @@ import java.util.Optional;
 
 
 // This class will handle all of the logging
+// https://ftctechnh.github.io/ftc_app/doc/javadoc/index.html?org/firstinspires/ftc/robotcore/external/Telemetry.html
 public class ERCParameterLogger {
 
     Telemetry _telemetry;
