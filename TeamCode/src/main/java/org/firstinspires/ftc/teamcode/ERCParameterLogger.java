@@ -72,7 +72,7 @@ public class ERCParameterLogger {
         if (updateNow)
             _telemetry.update();
     }
-    public void updateStatus() {
+    public void updateParameterStatus() {
             _telemetry.update();
     }
 

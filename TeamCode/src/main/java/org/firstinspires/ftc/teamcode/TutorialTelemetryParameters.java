@@ -113,7 +113,7 @@ public class TutorialTelemetryParameters extends LinearOpMode {
 
             // Update all parameters at once if they weren't updated immediately.
             if (!_updateStatusImmediately)
-                _logger.updateStatus();;
+                _logger.updateParameterStatus();;
         }
 
         msg = "stop request was detected";
