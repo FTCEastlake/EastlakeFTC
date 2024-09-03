@@ -50,7 +50,7 @@ public class TutorialTelemetryParameters extends LinearOpMode {
     {
         // Add all of the parameters you want displayed on the driver hub
         //_logger.addStatus();
-        _logger.initParameters();
+        _logger.init();
 
         // Add all of the parameters you want to see on the driver hub display.
         _logger.addParameter(_param1, 1);
@@ -83,17 +83,17 @@ public class TutorialTelemetryParameters extends LinearOpMode {
 
         initParams();
         String msg = "Init button was pressed. Waiting for start button to be pressed";
-        _logger.writeMsgToAllLogOutputs(msg);
+        _logger.writeMsg(msg);
         waitForStart();
         msg = "start button was pressed";
-        _logger.writeMsgToAllLogOutputs(msg);
+        _logger.writeMsg(msg);
 
         while (!isStopRequested())
         {
             sleep(1000);
             _timeSeconds++;
             msg = "timer: " + _timeSeconds + " seconds";
-            _logger.writeMsgToAllLogOutputs(msg);
+            _logger.writeMsg(msg);
 
             // This is just an example of showing how each parameter can be updated in real time.
             if ((_timeSeconds % 2) == 0)
@@ -117,6 +117,6 @@ public class TutorialTelemetryParameters extends LinearOpMode {
         }
 
         msg = "stop request was detected";
-        _logger.writeMsgToAllLogOutputs(msg);
+        _logger.writeMsg(msg);
     }
 }

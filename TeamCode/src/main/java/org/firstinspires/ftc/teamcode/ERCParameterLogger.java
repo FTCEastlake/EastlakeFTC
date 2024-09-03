@@ -15,8 +15,8 @@ import java.util.Optional;
 // https://ftctechnh.github.io/ftc_app/doc/javadoc/index.html?org/firstinspires/ftc/robotcore/external/Telemetry.html
 public class ERCParameterLogger {
 
+    private LinearOpMode _opMode;   // handle to LinearOpMode from the main function
     Telemetry _telemetry;
-
 
     Map<String, Telemetry.Item> _paramMap;
     Telemetry.Item _statusUpdate;
@@ -24,13 +24,14 @@ public class ERCParameterLogger {
 
     // We need to use the telemetry belonging to LinearOpMode, otherwise it will throw an exception.
     public ERCParameterLogger(LinearOpMode opMode){
-        _telemetry = opMode.telemetry;
+        _opMode = opMode;
+        _telemetry = _opMode.telemetry;
 
         // Note: don't call initParameters() in this constructor.
         // It might need time to fully instantiate before trying to interacting with it.
     }
 
-    public void initParameters()
+    public void init()
     {
         _paramMap = new HashMap<>();
         _telemetry.clear();             // Removes all items from the receiver whose value is not to be retained.
@@ -90,7 +91,7 @@ public class ERCParameterLogger {
         updateStatus(msg.toString(), true);
     }
 
-    public void writeMsgToAllLogOutputs(Object msg)
+    public void writeMsg(Object msg)
     {
         writeMsgToLogcat(msg.toString());
         writeMsgToDriverHub(msg);
